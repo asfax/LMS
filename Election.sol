@@ -10,6 +10,8 @@ contract Election {
 		uint id;
 		string name;
 		uint voteCount;
+		unit voterIdNumber;
+		string partyName;
 	}
 	// store accounts that have voted
 	mapping(address => bool) public voters;
@@ -25,11 +27,13 @@ contract Election {
 		addCandidate("Bill");
 		addCandidate("Tom");
 		addCandidate("Janice");
+		addCandidate("Jay");
+		addCandidate("Bury");
 	}	
 
 	function addCandidate (string _name) private {
-		candidatesCount ++;
-		candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+		candidatesCount +=2;
+		candidates[candidatesCount] = Candidate(candidatesCount, _name, 3);
 	}
 
 	function vote(uint _candidateId) public {
